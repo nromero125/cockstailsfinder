@@ -18,10 +18,9 @@ import { Text } from "react-native";
 import PropTypes from "prop-types";
 
 const SearchScreen = (props) => {
-  const [search, setSearch] = React.useState("");
-  const [loading, setLoading] = React.useState(false);
+  const [search, setSearch] = useState("");
+  const [loading, setLoading] = useState(false);
   const searchCocktails = async () => {
-    console.log(search);
     if (search.length >= 3) {
       setLoading(true);
       await axios
@@ -44,7 +43,7 @@ const SearchScreen = (props) => {
     setSearch("");
   };
 
-  const CustomRow = ({ title, image_url }) => (
+  const DrinksItem = ({ title, image_url }) => (
     <View style={styles.container}>
       <Image source={{ uri: image_url }} style={styles.photo} />
       <View style={styles.container_text}>
@@ -88,10 +87,9 @@ const SearchScreen = (props) => {
         <FlatList
           data={props.cocktails.cocktails}
           renderItem={({ item }) => (
-            <CustomRow title={item.strDrink} image_url={item.strDrinkThumb} />
+            <DrinksItem title={item.strDrink} image_url={item.strDrinkThumb} />
           )}
           keyExtractor={(item, index) => String(index)}
-          //ItemSeparatorComponent={renderSeparator}
           ListFooterComponent={renderFooter}
         />
       )}
