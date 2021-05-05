@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { SearchBar } from "react-native-elements";
-import axios from "axios";
 import { Platform, StatusBar } from "react-native";
 
 import {
@@ -19,18 +18,9 @@ import PropTypes from "prop-types";
 
 const SearchScreen = (props) => {
   const [search, setSearch] = useState("");
-  const [loading, setLoading] = useState(false);
   const searchCocktails = async () => {
     if (search.length >= 3) {
-      setLoading(true);
-      await axios
-        .get(
-          `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${search}`
-        )
-        .then(({ data }) => {
-          props.getCocktails(data.drinks);
-          setLoading(false);
-        });
+      props.getCocktails(search);
     }
   };
 
@@ -53,7 +43,7 @@ const SearchScreen = (props) => {
   );
 
   const renderFooter = () => {
-    if (!loading) return null;
+    if (!props.cocktails.loading) return null;
 
     return (
       <View style={styles.footer}>
@@ -76,7 +66,9 @@ const SearchScreen = (props) => {
         showCancel={true}
         platform={Platform.OS === "android" ? "android" : "ios"}
       />
-      {loading && <ActivityIndicator color="#0000ff" animating size="large" />}
+      {props.cocktails.loading && (
+        <ActivityIndicator color="#0000ff" animating size="large" />
+      )}
       {props.cocktails.cocktails && (
         <FlatList
           data={props.cocktails.cocktails}
@@ -134,7 +126,11 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = (state) => {
-  return { cocktails: state.cocktails };
+  return {
+    cocktails: state.cocktails,
+    loading: state.loading,
+    error: state.error,
+  };
 };
 
 const mapDispatchToProps = (dispatch) =>
