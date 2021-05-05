@@ -22,7 +22,6 @@ prop-types
 redux
 react-navigation
 react-native-elements
-expo
 ```
 
 ### Screenshots
