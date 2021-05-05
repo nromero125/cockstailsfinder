@@ -1,8 +1,8 @@
-#Description
+# Description
 
 Cocktails Finder is an app to find your favorites cocktails.
 
-##Installation
+## Installation
 
 Use the expo CLI and Yarn to install Cocktails Finder.
 
@@ -11,12 +11,13 @@ yarn install
 yarn start OR expo start
 ```
 
-##Usage
+## Usage
 
 After install and start the app, run the app on your iOs simulator or Android device. :)
 
-##Libraries Used
-```bash 
+## Libraries Used
+
+```bash
 prop-types
 redux
 react-navigation
@@ -24,7 +25,7 @@ react-native-elements
 expo
 ```
 
-###Screenshots
+### Screenshots
 
 ![Alt text](/screenshots/home.png?raw=true "Home")
 ![Alt text](/screenshots/search.png?raw=true "Search ")
