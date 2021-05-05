@@ -1,13 +1,13 @@
-import React from "react";
-import { Provider } from "react-redux";
-import { createStore } from "redux";
+import React from 'react';
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
 
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
-import cocktailsReducer from "./reducers/cocktailsReducer";
-import HomeScreen from "./screens/HomeScreen";
-import SearchScreen from "./screens/SearchScreen";
-import PropTypes from "prop-types";
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+import cocktailsReducer from './reducers/cocktailsReducer';
+import HomeScreen from './screens/HomeScreen';
+import SearchScreen from './screens/SearchScreen';
+import PropTypes from 'prop-types';
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -18,12 +18,12 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen
-            options={{ headerShown: false }}
+            options={{headerShown: false}}
             name="HomeScreen"
             component={HomeScreen}
           />
           <Stack.Screen
-            options={{ headerShown: false }}
+            options={{headerShown: false}}
             name="SearchScreen"
             component={SearchScreen}
           />

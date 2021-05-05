@@ -56,13 +56,7 @@ const SearchScreen = (props) => {
     if (!loading) return null;
 
     return (
-      <View
-        style={{
-          paddingVertical: 20,
-          borderTopWidth: 1,
-          borderColor: "#CED0CE",
-        }}
-      >
+      <View style={styles.footer}>
         <ActivityIndicator animating size="large" />
       </View>
     );
@@ -115,6 +109,11 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFF",
     elevation: 2,
     height: 80,
+  },
+  footer: {
+    paddingVertical: 20,
+    borderTopWidth: 1,
+    borderColor: "#CED0CE",
   },
   title: {
     fontSize: 18,
